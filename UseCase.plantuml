@@ -1,0 +1,43 @@
+@startuml 
+left to right direction 
+actor "Administrateur" as admin
+actor "Utilisateur final" as user
+actor "Développeur" as dev
+
+rectangle DATABASE{
+    usecase "Créer des bases de données" as create_db
+    usecase "Inserer des données" as insert_db
+    usecase "Modifier des données" as update_db
+    usecase "Faire des requêtes SQL" as request_db
+    usecase "Créer des rapports" as rapports_db
+    usecase "Exporter des données" as export_db
+    usecase "Gérer des utilisateurs" as manage_users
+    usecase "Attribuer des droits d'accès" as assign_access_rights
+    usecase "Sauvegarder des données" as backup_data
+    usecase "Analyser l'activité du SGBD" as analyze_activity
+    usecase "Optimiser les performances" as optimize_performance
+    usecase "Faire de la documentation complète" as make_documentation
+    usecase "Répliquer des données" as replicate_data
+    usecase "Chiffrer les données" as encrypt_data
+}
+
+admin --|> user
+dev --|> user
+
+admin --> manage_users
+admin --> assign_access_rights
+admin --> backup_data
+admin --> analyze_activity
+admin --> optimize_performance
+
+dev --> make_documentation
+dev --> replicate_data
+dev --> encrypt_data
+
+user --> create_db
+user --> insert_db
+user --> update_db
+user --> request_db
+user --> rapports_db
+user --> export_db
+@enduml
